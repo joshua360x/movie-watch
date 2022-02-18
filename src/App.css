@@ -71,3 +71,7 @@
   width: 200px;
   height: 300px;
 }
+
+.alreadyWatched {
+  background-color: lightgreen;
+}

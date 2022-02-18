@@ -20,11 +20,15 @@ export default function Search() {
 
   useEffect(() => {
     async function onLoad() {
-      const data = await fetchWatchList();
-      setWatchMovies(data);
+      reLoad();
     }
     onLoad();
   }, []);
+
+  async function reLoad() {
+    const data = await fetchWatchList();
+    setWatchMovies(data);
+  }
 
   function onWatchList(idFromDB) {
     const match = watchMovies.find((movie) => Number(movie.api_id) === Number(idFromDB));
@@ -43,7 +47,7 @@ export default function Search() {
       </form>
 
       <div>
-        <MoviesList onWatchList={onWatchList} movies={movies} />
+        <MoviesList reLoad={reLoad} onWatchList={onWatchList} movies={movies} />
       </div>
     </section>
   );

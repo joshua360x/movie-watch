@@ -1,7 +1,7 @@
 import React from 'react';
 import { insertItemIntoWatchList } from './services/fetch-utils';
 
-export default function Movie({ title, vote_average, id, poster_path, onWatchList }) {
+export default function Movie({ title, vote_average, id, poster_path, onWatchList, reLoad }) {
   const watchListAlready = onWatchList(id);
 
   async function handleClick() {
@@ -14,6 +14,7 @@ export default function Movie({ title, vote_average, id, poster_path, onWatchLis
       };
       await insertItemIntoWatchList(dataObject);
     }
+    reLoad();
   }
 
   return (

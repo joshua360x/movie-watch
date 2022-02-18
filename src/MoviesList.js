@@ -1,11 +1,11 @@
 import React from 'react';
 import Movie from './Movie';
 
-export default function MoviesList({ movies, onWatchList }) {
+export default function MoviesList({ movies, onWatchList, reLoad }) {
   return (
     <>
       {movies.map((movie, i) => (
-        <Movie onWatchList={onWatchList} key={movie + i} {...movie} />
+        <Movie reLoad={reLoad} onWatchList={onWatchList} key={movie + i} {...movie} />
       ))}
     </>
   );

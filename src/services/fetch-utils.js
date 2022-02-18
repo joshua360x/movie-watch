@@ -23,7 +23,7 @@ export async function logout() {
 }
 
 export async function fetchWatchList() {
-  const response = await client.from('movies').select();
+  const response = await client.from('movies').select().order('was_watched');
   // console.log('🚀 ~ file: fetch-utils.js ~ line 27 ~ fetchWatchList ~ response', response);
 
   return checkError(response);
@@ -36,7 +36,7 @@ export async function insertItemIntoWatchList(movie) {
 }
 
 export async function updateIfUserWatched(api_id) {
-  const response = await client.from('movies').update({ was_watched: true }).match({ api_id });
+  const response = await client.from('movies').update({ was_watched: true }).match({ api_id }).single();
 
   return checkError(response);
 }
