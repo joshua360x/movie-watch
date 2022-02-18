@@ -44,3 +44,8 @@
 .movie:hover {
   background-color: rgb(252, 167, 249);
 }
+
+.movie img {
+  width: 200px;
+  height: 300px;
+}
