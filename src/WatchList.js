@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { fetchWatchList } from './services/fetch-utils';
+import { fetchWatchList, updateIfUserWatched } from './services/fetch-utils';
 
 export default function WatchList() {
   const [watchMovies, setWatchMovies] = useState([]);
+
+  async function handleClick(id) {
+    await updateIfUserWatched(id);
+  }
 
   useEffect(() => {
     async function onLoad() {
@@ -16,7 +20,7 @@ export default function WatchList() {
   return (
     <div>
       {watchMovies.map((movie, i) => (
-        <div  key={movie + i} className="watchListOfMovie">
+        <div onClick={() => handleClick(movie.api_id)} key={movie + i} className="watchListOfMovie">
           <p>{movie.title}</p>
           { movie.image_path ? <img
             src={
