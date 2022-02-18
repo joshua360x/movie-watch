@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.movie {
+  border: 2px dotted orchid;
+}
+
+.movie:hover {
+  background-color: rgb(252, 167, 249);
+}
