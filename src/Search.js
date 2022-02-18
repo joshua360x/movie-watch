@@ -1,5 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Search() {
-  return <div>Search</div>;
+
+  const [movieQuery, setMovieQuery] = useState('');
+
+  return <form>
+    <label>
+      Search For A Movie
+      <input value={movieQuery} onChange={e => setMovieQuery(e.target.value)} type="text"/>
+    </label>
+  </form>;
 }
