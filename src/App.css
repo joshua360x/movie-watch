@@ -41,6 +41,14 @@ header > * {
   margin: 10px;
 }
 
+header > a {
+  text-decoration: none;
+}
+
+.active {
+  background-color: lightgoldenrodyellow;
+}
+
 .movie {
   border: 2px dotted orchid;
 }

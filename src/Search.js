@@ -13,7 +13,6 @@ export default function Search() {
     const response = await fetch(`/.netlify/functions/movie?search=${movieQuery}`);
 
     const json = await response.json();
-    console.log('🚀 ~ file: Search.js ~ line 13 ~ handleSubmit ~ json', json.data.results);
     const movieResults = json.data.results;
     setMovies(movieResults);
   }

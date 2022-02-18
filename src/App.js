@@ -27,7 +27,7 @@ function App() {
       <main className="App">
         {authUser && (
           <header>
-            <NavLink to="/watchList">WatchList</NavLink>
+            <NavLink activeClassName='active' to="/watchList">WatchList</NavLink>
             <NavLink to="/search">Search</NavLink>
             <button onClick={logoutFunction}>Logout</button>
           </header>

@@ -18,7 +18,6 @@ export default function WatchList() {
 
   async function reLoad() {
     const data = await fetchWatchList();
-    console.log('🚀 ~ file: WatchList.js ~ line 10 ~ onLoad ~ data', data);
     setWatchMovies(data);
   }
 

@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 require('dotenv').config();
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   const { search } = event.queryStringParameters;
   try {
     const response = await fetch(
@@ -15,6 +15,7 @@ exports.handler = async (event, context) => {
       body: json,
     };
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     return {
       statusCode: 500,
