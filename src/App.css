@@ -37,6 +37,10 @@
   }
 }
 
+header > * {
+  margin: 10px;
+}
+
 .movie {
   border: 2px dotted orchid;
 }
@@ -51,7 +55,7 @@
 }
 
 .watched {
-  cursor: auto;
+  cursor: default;
 }
 
 .point:hover {
@@ -60,6 +64,8 @@
 
 .watchListOfMovie {
   border: 2px dotted rgb(86, 100, 226);
+  cursor: pointer;
+
 }
 
 .watchListOfMovie:hover {
@@ -74,4 +80,6 @@
 
 .alreadyWatched {
   background-color: lightgreen;
+  cursor: default;
+
 }
