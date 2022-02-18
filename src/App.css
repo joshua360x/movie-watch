@@ -49,3 +49,25 @@
   width: 200px;
   height: 300px;
 }
+
+.watched {
+  cursor: auto;
+}
+
+.point:hover {
+  cursor: pointer;
+}
+
+.watchListOfMovie {
+  border: 2px dotted rgb(86, 100, 226);
+}
+
+.watchListOfMovie:hover {
+  background-color: rgb(42, 115, 250);
+
+}
+
+.watchListOfMovie img {
+  width: 200px;
+  height: 300px;
+}

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MoviesList from './MoviesList';
+import { fetchWatchList } from './services/fetch-utils';
 
 export default function Search() {
   const [movieQuery, setMovieQuery] = useState('');
   const [movies, setMovies] = useState([]);
+  const [watchMovies, setWatchMovies] = useState([]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -14,6 +16,20 @@ export default function Search() {
     console.log('🚀 ~ file: Search.js ~ line 13 ~ handleSubmit ~ json', json.data.results);
     const movieResults = json.data.results;
     setMovies(movieResults);
+  }
+
+  useEffect(() => {
+    async function onLoad() {
+      const data = await fetchWatchList();
+      setWatchMovies(data);
+    }
+    onLoad();
+  }, []);
+
+  function onWatchList(idFromDB) {
+    const match = watchMovies.find((movie) => Number(movie.api_id) === Number(idFromDB));
+
+    return Boolean(match);
   }
 
   return (
@@ -27,7 +43,7 @@ export default function Search() {
       </form>
 
       <div>
-        <MoviesList movies={movies} />
+        <MoviesList onWatchList={onWatchList} movies={movies} />
       </div>
     </section>
   );
