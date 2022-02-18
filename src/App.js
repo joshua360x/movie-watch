@@ -1,24 +1,50 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route, Redirect, NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Search from './Search';
+import WatchList from './WatchList';
+import AuthPage from './AuthPage';
+import { getUser, logout } from './services/fetch-utils';
 
 function App() {
+  const [authUser, setAuthUser] = useState(localStorage.getItem('supabase.auth.token'));
+
+  useEffect(() => {
+    async function onLoad() {
+      const data = await getUser();
+      setAuthUser(data);
+    }
+    onLoad();
+  }, []);
+
+  async function logoutFunction() {
+    await logout();
+    setAuthUser(null);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <main className="App">
+        {authUser && (
+          <header>
+            <NavLink activeClassName='active' to="/watchList">WatchList</NavLink>
+            <NavLink to="/search">Search</NavLink>
+            <button onClick={logoutFunction}>Logout</button>
+          </header>
+        )}
+        <Switch>
+          <Route exact path="/">
+            {authUser ? <Redirect to="/search" /> : <AuthPage setAuthUser={setAuthUser} />}
+          </Route>
+          <Route exact path="/search">
+            {authUser ? <Search /> : <AuthPage />}
+          </Route>
+          <Route exact path="/watchList">
+            {authUser ? <WatchList /> : <AuthPage />}
+          </Route>
+        </Switch>
+      </main>
+    </Router>
   );
 }
 

@@ -36,3 +36,58 @@
     transform: rotate(360deg);
   }
 }
+
+header > * {
+  margin: 10px;
+}
+
+header > a {
+  text-decoration: none;
+}
+
+.active {
+  background-color: lightgoldenrodyellow;
+}
+
+.movie {
+  border: 2px dotted orchid;
+}
+
+.movie:hover {
+  background-color: rgb(252, 167, 249);
+}
+
+.movie img {
+  width: 200px;
+  height: 300px;
+}
+
+.watched {
+  cursor: default;
+}
+
+.point:hover {
+  cursor: pointer;
+}
+
+.watchListOfMovie {
+  border: 2px dotted rgb(86, 100, 226);
+  cursor: pointer;
+
+}
+
+.watchListOfMovie:hover {
+  background-color: rgb(42, 115, 250);
+
+}
+
+.watchListOfMovie img {
+  width: 200px;
+  height: 300px;
+}
+
+.alreadyWatched {
+  background-color: lightgreen;
+  cursor: default;
+
+}
