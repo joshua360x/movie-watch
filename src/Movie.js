@@ -1,12 +1,14 @@
 import React from 'react';
+import { insertItemIntoWatchList } from './services/fetch-utils';
 
 export default function Movie({ title, vote_average, id, poster_path }) {
-  function handleClick() {
+  async function handleClick() {
     const dataObject = {
       title: title,
       api_id: id,
     };
-    console.log('🚀 ~ file: Movie.js ~ line 10 ~ handleClick ~ dataObject', dataObject);
+
+    await insertItemIntoWatchList(dataObject);
   }
 
   return (

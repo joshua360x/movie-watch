@@ -21,3 +21,16 @@ export async function logout() {
 
   return (window.location.href = '../');
 }
+
+export async function fetchWatchList() {
+  const response = await client.from('movies').select();
+  console.log('🚀 ~ file: fetch-utils.js ~ line 27 ~ fetchWatchList ~ response', response);
+
+  checkError(response);
+}
+
+export async function insertItemIntoWatchList(movie) {
+  const response = await client.from('movies').insert([movie]);
+
+  checkError(response);
+}
