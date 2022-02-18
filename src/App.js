@@ -26,7 +26,7 @@ function App() {
     <Router>
       <main className="App">
         {authUser && (
-          <header className="App-header">
+          <header>
             <NavLink to="/watchList">WatchList</NavLink>
             <NavLink to="/search">Search</NavLink>
             <button onClick={logoutFunction}>Logout</button>
