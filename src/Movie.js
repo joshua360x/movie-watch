@@ -6,6 +6,7 @@ export default function Movie({ title, vote_average, id, poster_path }) {
     const dataObject = {
       title: title,
       api_id: id,
+      image_path: poster_path
     };
 
     await insertItemIntoWatchList(dataObject);
