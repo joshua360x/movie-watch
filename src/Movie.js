@@ -18,7 +18,7 @@ export default function Movie({ title, vote_average, id, poster_path, onWatchLis
   }
 
   return (
-    <div onClick={handleClick} className={watchListAlready ? 'movie watched ' : 'movie point '}>
+    <div role='click' onClick={handleClick} className={watchListAlready ? 'movie watched ' : 'movie point '}>
       <p>{title}</p>
       <p>{vote_average} / 10</p>
       <img
