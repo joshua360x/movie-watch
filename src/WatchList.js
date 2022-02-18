@@ -16,7 +16,7 @@ export default function WatchList() {
   return (
     <div>
       {watchMovies.map((movie, i) => (
-        <div key={movie + i} className="watchListOfMovie">
+        <div  key={movie + i} className="watchListOfMovie">
           <p>{movie.title}</p>
           { movie.image_path ? <img
             src={

@@ -35,4 +35,8 @@ export async function insertItemIntoWatchList(movie) {
   return checkError(response);
 }
 
+export async function updateIfUserWatched(api_id) {
+  const response = await client.from('movies').update({ was_watched: true }).match({ api_id });
 
+  return checkError(response);
+}
